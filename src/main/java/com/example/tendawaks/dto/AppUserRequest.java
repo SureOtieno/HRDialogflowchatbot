@@ -15,12 +15,11 @@ public class AppUserRequest {
     @NonNull
     private String email;
 
-//    @NonNull
-//    private String location;
+    @NonNull
+    private String name;
 
     @NonNull
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String location;
 
 
     @Data
@@ -31,7 +30,7 @@ public class AppUserRequest {
         private String password;
 
         @NonNull
-        private String userName;
+        private String username;
 
 
     }
@@ -40,7 +39,7 @@ public class AppUserRequest {
     @RequiredArgsConstructor
     public static class resetPasswordRequest {
         @NonNull
-        private String userName;
+        private String username;
 
         @NonNull
         private String password;
@@ -51,7 +50,7 @@ public class AppUserRequest {
     @RequiredArgsConstructor
     public static class forgotenPasswordRequest {
         @NonNull
-        private String userName;
+        private String username;
     }
 
 }

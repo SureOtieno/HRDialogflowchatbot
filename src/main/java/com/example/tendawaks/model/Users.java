@@ -26,10 +26,13 @@ public class Users {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "username", unique = true, nullable = false)
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "username", unique = true)
     private String username;
 
-    @Column(name = "phone")
+    @Column(name = "phone", unique = true)
     private String phone;
 
     @Column(name = "google_uid", unique = true)
@@ -38,7 +41,7 @@ public class Users {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "password_hash")
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
@@ -61,7 +64,7 @@ public class Users {
     @PrePersist @PreUpdate
     private void validateRole() {
         if (this.role == null) {
-            throw new IllegalStateException("User role cannot be null");
+            role = Role.USER;
         }
     }
 

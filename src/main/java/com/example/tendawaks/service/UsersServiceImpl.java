@@ -50,12 +50,13 @@ public class UsersServiceImpl implements UsersService {
 
         Users user = Users.builder()
                 .email(appUserRequest.getEmail())
+                .name(appUserRequest.getName())
                 .passwordHash(passwordEncoder.encode(appUserRequest.getPassword()))
                 .build();
 
-        user.setRole(appUserRequest.getRole());
         user.setUsername(appUserRequest.getEmail());
         user.setCreatedAt(LocalDateTime.now());
+
 
 
         userRepo.save(user);
@@ -74,12 +75,12 @@ public class UsersServiceImpl implements UsersService {
 
         AuthenticationManager authenticationManager = getAuthenticationManager();
         Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                        appRequest.getUserName(),
+                        appRequest.getUsername(),
                         appRequest.getPassword())
 
                 );
 
-        var user = userRepo.findByUsername(appRequest.getUserName());
+        var user = userRepo.findByUsername(appRequest.getUsername());
 
         if (user == null) {
             return AuthenticationResponse.builder()
