@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>tendawaks</artifactId>
+	<artifactId>dialogflowchat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tendawaks</name>
+	<name>dialogflowchat</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -99,6 +99,12 @@
 			<artifactId>google-api-client</artifactId>
 			<version>2.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.theokanning.openai-gpt3-java</groupId>
+			<artifactId>client</artifactId>
+			<version>0.14.0</version> <!-- Or latest -->
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-jackson2 -->
 		<dependency>
 			<groupId>com.google.http-client</groupId>

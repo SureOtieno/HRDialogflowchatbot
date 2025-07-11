@@ -1,4 +1,4 @@
-package com.example.tendawaks.model;
+package com.example.dialogflow.model;
 
 
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.example.tendawaks.service;
+package com.example.dialogflow.service;
 
 import com.google.cloud.dialogflow.v2.*;
 import com.google.auth.oauth2.GoogleCredentials;

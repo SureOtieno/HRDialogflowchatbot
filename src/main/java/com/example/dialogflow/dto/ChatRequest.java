@@ -1,4 +1,4 @@
-package com.example.tendawaks.dto;
+package com.example.dialogflow.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

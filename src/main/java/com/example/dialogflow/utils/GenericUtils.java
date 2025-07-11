@@ -1,8 +1,8 @@
-package com.example.tendawaks.utils;
+package com.example.dialogflow.utils;
 
 
-import com.example.tendawaks.dto.Pagination;
-import com.example.tendawaks.utils.constants.Constants;
+import com.example.dialogflow.utils.constants.Constants;
+import com.example.dialogflow.dto.Pagination;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class GenericUtils {
 
     public static ResponseEntity<Object> noRecordsFound() {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(GenericResponse.GenericResponseData.builder()
-                        .status(ResponseStatus.FAILED.getStatus())
+                .body(com.example.tendawaks.utils.GenericResponse.GenericResponseData.builder()
+                        .status(com.example.tendawaks.utils.ResponseStatus.FAILED.getStatus())
                         .data(new ArrayList<>())
                         .message(Constants.NO_RECORD_FOUND)
                         .msgDeveloper(Constants.NO_RECORD_FOUND)

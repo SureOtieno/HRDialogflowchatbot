@@ -1,4 +1,4 @@
-package com.example.tendawaks.utils.constants;
+package com.example.dialogflow.utils.constants;
 
 
 import org.springframework.stereotype.Component;

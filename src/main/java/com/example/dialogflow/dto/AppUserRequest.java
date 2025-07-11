@@ -1,7 +1,7 @@
-package com.example.tendawaks.dto;
+package com.example.dialogflow.dto;
 
 
-import com.example.tendawaks.model.Role;
+import com.example.dialogflow.model.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

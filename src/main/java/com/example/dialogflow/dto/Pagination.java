@@ -1,4 +1,4 @@
-package com.example.tendawaks.dto;
+package com.example.dialogflow.dto;
 
 import lombok.Builder;
 import lombok.Data;

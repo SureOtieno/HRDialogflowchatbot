@@ -1,6 +1,6 @@
-package com.example.tendawaks.model.repository;
+package com.example.dialogflow.model.repository;
 
-import com.example.tendawaks.model.Users;
+import com.example.dialogflow.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
