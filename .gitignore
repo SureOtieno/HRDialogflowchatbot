@@ -4,8 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-/src/main/resources/*.json
-/src/main/resources/*.properties
+# Ignore the actual credentials file
+/home/suleiman/Documents/tendawaks-435270818f53.json
+*.json
+application.properties
 
 ### STS ###
 .apt_generated

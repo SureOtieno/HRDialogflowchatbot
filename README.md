@@ -1,2 +1,2 @@
-# TW-Login
-- User login 
+# HR AI Assistant
+- User interaction with AI assistant 

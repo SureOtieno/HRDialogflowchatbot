@@ -9,6 +9,7 @@ public class ChatRequest {
 
     private String message;
     private String sessionId;
+    private String employeeId;
     private String menu;
     private String method;
     private String languageCode;

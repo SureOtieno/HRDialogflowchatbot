@@ -25,7 +25,7 @@ public class DialogflowService {
     private final String languageCode;
 
     public DialogflowService(
-            @Value("${dialogflow.credentials.path}") String credentialsPath,
+            @Value("${google.credentials.path}") String credentialsPath,
             @Value("${dialogflow.project.id}") String projectId,
             @Value("${dialogflow.language.code:en-US}") String languageCode
     ) {
@@ -85,11 +85,15 @@ public class DialogflowService {
 
             DetectIntentResponse response = sessionsClient.detectIntent(session, queryInput);
             QueryResult queryResult = response.getQueryResult();
+            String intentName = queryResult.getIntent().getDisplayName();
+
 
             log.debug("Dialogflow response - Intent: {}, Confidence: {}, Fulfillment: {}",
                     queryResult.getIntent().getDisplayName(),
                     queryResult.getIntentDetectionConfidence(),
                     queryResult.getFulfillmentText());
+
+            log.info("Intent Detected: {}", intentName);
 
             return queryResult.getFulfillmentText();
 

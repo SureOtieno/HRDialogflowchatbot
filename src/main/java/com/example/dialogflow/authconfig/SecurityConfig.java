@@ -7,6 +7,7 @@ import org.springframework.security.config.Customizer; // Import this!
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -53,19 +54,27 @@ public class SecurityConfig {
                         // CRITICAL: Allow OPTIONS requests to pass through without authentication checks.
                         // This prevents redirects for preflight requests.
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
-                        // Allow your API chat endpoint to be accessed without authentication.
-                        // If you *do* need authentication for /api/chat, then your Yii2 app
-                        // must send valid credentials (e.g., Authorization header).
-                        .requestMatchers("/api/chat/**").permitAll() // Matches /api/chat and /api/chat/
-
-                        // Configure other security rules for other endpoints as needed
-                        .anyRequest().authenticated() // All other requests require authentication
+                        .requestMatchers("/api/chat/**").permitAll()
+                        .requestMatchers("/api/webhook/**").permitAll() // Ensure webhook endpoint is also permitted
+                        .requestMatchers("/api/trigger/**").permitAll() // Ensure trigger endpoint is also permitted
+                        .anyRequest().authenticated()
                 )
                 // You might want to disable formLogin or httpBasic if you're using token-based auth
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable); // Disable if you're not using basic auth
 
         return http.build();
+    }
+    // In SecurityConfig.java or a new AppConfig.java
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+        // You can add configurations here, e.g.:
+        // return new RestTemplate(new HttpComponentsClientHttpRequestFactory(HttpClientBuilder.create().build()));
+        // or configure timeouts:
+        // SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        // factory.setConnectTimeout(5000); // 5 seconds
+        // factory.setReadTimeout(10000); // 10 seconds
+        // return new RestTemplate(factory);
     }
 }
